@@ -35,5 +35,23 @@ module.exports = {
         {
             await newPresence.user.send("Brawo, wyłączyłeś tą grę. Mam nadzieję, że po to, żeby ją odnistalować");
         }
+        else if(newGame === "Genshin Impact" && oldGame !== newGame)
+        {
+            const role = guild.roles.cache.find(r => r.name === "gei");
+
+            if(role) await newPresence.member.roles.add(role).catch(err => {console.error("Nie udało się dodać roli:", err.message);});
+            
+            const channel = guild.channels.cache.get(process.env.ANNOUNCEMENTCHANNELID);
+            if (channel && channel.isTextBased())
+            {
+                await channel.send({ content:`Uwaga ${newPresence.member} włączył Genshina 🏳️‍🌈. Przeczytaj #8 zasadę! Hańba ci!\nhttps://media.discordapp.net/attachments/1074650569496604673/1167590330279919656/843a3a.gif?ex=694d117b&is=694bbffb&hm=52554ecf239f1c1d5b98d9cb0ab5f74763bf9d2211c5cae879bb7f28b020aba1&` });
+            }
+
+            await newPresence.user.send("Rodzina się ciebie nie wstydzi?\nhttps://youtu.be/EfpWFwGktXA?si=bmhvSuD29w1Zv567");
+        }
+        else if(oldGame === "Genshin Impact" && oldGame !== newGame)
+        {
+            await newPresence.user.send("Brawo, wyłączyłeś tą grę. Mam nadzieję, że po to, żeby ją odnistalować");
+        }
 	}
 };
