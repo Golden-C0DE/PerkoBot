@@ -105,7 +105,7 @@ module.exports = {
 
         collector.on('collect', async m => {
             const match = m.content.match(regex);
-            const usedColor = match?.[1].toLowerCase();
+            const usedColor = match?.[2].toLowerCase();
 
             collector.stop();
             if(usedColor === goodColor) 

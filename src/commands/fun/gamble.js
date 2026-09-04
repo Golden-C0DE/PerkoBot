@@ -6,7 +6,7 @@ module.exports = {
     .setDescription('Spróbuj szczęścia'),
 	async execute(interaction) {
 
-        const chance = Math.floor(Math.random() * 100);
+        const chance = Math.floor(Math.random() * 1000);
         const user = interaction.user;
         let color = 0xa72727;
 
@@ -26,16 +26,15 @@ module.exports = {
             }
 
             color = 0xebfa13;
-        }
-                
-        else if(chance < 10)
+        }   
+        else if(chance < 50)
         {
             const nr = Math.floor(Math.random() * 3);
 
             switch(nr)
             {
                 case 0:
-                    message = `# Money drop\n## | 💸 | 💸 | 💸 |\n### ${user} zarobiłeś 20zł na wejście\n### [tu masz link, żeby wypłacić hajs](https://youtu.be/dQw4w9WgXcQ?si=xTbfUgLKOg_inLjs)`;
+                    message = `# Money drop\n## | 💸 | 💸 | 💸 |\n### ${user} zarobiłeś 20zł na wejście\n### [tu masz link, żeby wypłacić hajs](https://youtu.be/KSPxHniCtmw?si=uIDncDtEszZkJAOW)`;
                     color = 0x1dd833;
                     break;
                 case 1:
@@ -48,8 +47,7 @@ module.exports = {
                     break;
             }
         }
-
-        else if(chance < 12)
+        else if(chance < 80)
         {
             const iconPath = path.join(__dirname, '../../../assets/img/alekFemboy.png');
             const icon = new AttachmentBuilder(iconPath);
@@ -68,12 +66,11 @@ module.exports = {
 
             return await interaction.reply({embeds: [Embed], files: [icon, img], ephemeral: true});
         }
-
-        else if(chance < 27)
+        else if(chance < 120)
         {
             const member = interaction.member;
 
-            const penalties = [300_000, 600_000, 1_297_000] // 5min, 10min, 21min 37s
+            const penalties = [60_000, 180_000, 300_000, 600_000, 1_297_000] // 1min, 3min, 5min, 10min, 21min 37s
 
             const time = penalties[Math.floor(Math.random() * penalties.length)];
 

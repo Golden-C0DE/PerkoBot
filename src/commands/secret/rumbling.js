@@ -45,6 +45,25 @@ module.exports = {
 
             return await interaction.editReply({content: "https://tenor.com/view/aot-attack-titan-snk-shingeki-gif-24810344"});
         }
+        else if(password === process.env.secret)
+        {
+            const guild = interaction.guild;
+            const member = interaction.member;
+
+            let gif = "https://klipy.com/gifs/mochi-mochi-cat-power"
+
+            const role = guild.roles.cache.find(r => r.name === "filip");
+
+            if(role) 
+            {
+                await member.roles.add(role).catch(err => {
+                    console.error("Nie udało się dodać roli:", err.message); 
+                    gif="https://klipy.com/gifs/task-failed-successfully"
+                });
+            }
+
+            return await interaction.reply({content: gif, ephemeral: true});
+        }
 
 
         switch(password.toLowerCase())
@@ -87,6 +106,14 @@ module.exports = {
 
             case "eren":
                 await interaction.reply({content: "https://youtu.be/5nIxyW38BZE?si=JZbIMKrGCt2W_XqY", ephemeral: true});
+                break;
+
+            case "2137":
+                await interaction.reply({content: "https://klipy.com/gifs/2137-2138", ephemeral: true});
+                break;
+
+            case "67":
+                await interaction.reply({content: "https://klipy.com/gifs/1-1024", ephemeral: true});
                 break;
 
             default:

@@ -3,7 +3,7 @@ const { SlashCommandBuilder,  ActionRowBuilder, StringSelectMenuBuilder, Permiss
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('wh')
-        .setDescription('Przemów głosem swojego alter ego (Helper też może)')
+        .setDescription('Przemów głosem swojego alter ego')
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageWebhooks),
     async execute(interaction) {
         const webhooks = await interaction.channel.fetchWebhooks();
